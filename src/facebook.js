@@ -29,6 +29,15 @@ $(document).ready(function (){
          version    : 'v2.8' // use graph api version 2.8
        });
 
+       (function(d, s, id) {
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) return;
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+
+
        // Now that we've initialized the JavaScript SDK, we call
        // FB.getLoginStatus().  This function gets the state of the
        // person visiting this page and can return one of three states to
@@ -45,17 +54,8 @@ $(document).ready(function (){
          statusChangeCallback(response);
        });
 
-       };
-
-       // Load the SDK asynchronously
-       (function(d, s, id) {
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) return;
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-
+              // Load the SDK asynchronously
+       
        // Here we run a very simple test of the Graph API after login is
        // successful.  See statusChangeCallback() for when this call is made.
        function testAPI() {
@@ -66,4 +66,4 @@ $(document).ready(function (){
              'Thanks for logging in, ' + response.name + '!';
          });
        }
-})
+}})
