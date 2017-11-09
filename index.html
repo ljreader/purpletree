@@ -1,97 +1,105 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Facebook Login JavaScript Example</title>
-<meta charset="UTF-8">
+  <title>Choose your Adventure</title>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Bootstrap Mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Schoolbell" rel="stylesheet">
+<!-- SVG Animation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+<!-- Jquery-->
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<!-- External CSS Sheet -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- External Java Sheet -->
+<script type="text/javascript" src="src/json.js"></script>
+<script type="text/javascript" src="src/book.js"></script>
+<script src="javascript/java.js"></script>
+<script type="text/javascript" src="src/facebook.js"></script>
+
 </head>
+
+
 <body>
-<script>
-  // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
-    } else {
-      // The person is not logged into your app or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
-    }
-  }
+<!-- Top Nav -->
 
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
-
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '1994680544133095',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.8' // use graph api version 2.8
-  });
-
-  // Now that we've initialized the JavaScript SDK, we call 
-  // FB.getLoginStatus().  This function gets the state of the
-  // person visiting this page and can return one of three states to
-  // the callback you provide.  They can be:
-  //
-  // 1. Logged into your app ('connected')
-  // 2. Logged into Facebook, but not your app ('not_authorized')
-  // 3. Not logged into Facebook and can't tell if they are logged into
-  //    your app or not.
-  //
-  // These three cases are handled in the callback function.
-
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-
-  };
-
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
-</script>
-
-<!--
-  Below we include the Login Button social plugin. This button uses
-  the JavaScript SDK to present a graphical Login button that triggers
-  the FB.login() function when clicked.
--->
-
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <nav class="navbar navbar-default navbar-fixed-top" id="navbar" role="navigation">
+        <div class="navbar-header">
+          <a href="index.html"><img id="purpletree" src="images/purpletree.png"></a>
+          <span id="text">Login:</span>
+          <ul class="nav navbar-nav navbar-right">
+            <li><img id="github" src="images/github.png"></li>
+            <li><img id="facebook" src="images/facebook.png"></li>
+          </ul>
+          <div id="status"></div>
+          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
-
-<div id="status">
+        </div> 
+      </nav>
+    </div>
+  </div>
 </div>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <!-- main body container -->
+      <div class="container  main-area">
+        <!-- Div for animated Title -->
+        <div class="title"> 
+          <svg width="530" height="75">
+          </svg>
+        </div>
+        <!-- Story 1 Div -->
+        <button id="story1" class="story"></button>
+      <!-- Story 2 Div-->
+        <div id="story2">
+          <div>
+            <h1 id="story2title">Astro Goes to the Moon</h1>
+          </div>
+        </div>
+      <!-- Story 3 Div -->
+        <div id="story3">
+          <div>
+            <h1 id="story3title">Mystery of the Sunken Treasure</h1>
+          </div>
+        </div>
+      <!-- Stpry 4 Div -->
+        <div id="story4">
+          <div>
+            <h1 id="story4title">The Dancing Cat</h1>
+          </div>
+        </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <!-- Footer -->
+  <nav class="navbar navbar-default navbar-fixed-bottom" id="navbottom">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img id="purpletree" src="images/purpletree.png">
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active" id="brand"><a href="#">Purple Tree Studios</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+      </ul>
+    </div>
+  </nav>
 </body>
 </html>
+
