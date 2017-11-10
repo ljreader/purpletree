@@ -48,7 +48,7 @@ $(document).ready(function (){
          statusChangeCallback(response);
        });
 
-       };
+       ;
 
        // Load the SDK asynchronously
        (function(d, s, id) {
