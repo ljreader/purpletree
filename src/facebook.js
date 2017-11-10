@@ -15,8 +15,8 @@ $(document).ready(function(d, s, id) {
         autoLogAppEvents : true,
         xfbml            : true,
         version          : 'v2.11'
-      });
-    };
+      })
+    }
 
 function fb_login(){
     FB.login(function(response) {
@@ -33,7 +33,7 @@ function fb_login(){
             });
 
         } else {
-            //user hit cancel button//
+            //user hit cancel button
             console.log('User cancelled login or did not fully authorize.');
 
         }
@@ -41,3 +41,9 @@ function fb_login(){
         scope: 'publish_stream,email'
     });
 }
+(function() {
+    var e = document.createElement('script');
+    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+    e.async = true;
+    document.getElementById('fb-root').appendChild(e);
+}());
