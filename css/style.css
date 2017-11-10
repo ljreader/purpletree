@@ -259,3 +259,10 @@ h1 {
 	width: 40%;
 	height: auto;
 }
+
+.fb-login-button {
+	height: 50px;
+	width:50px;
+	border-image-source: ("../images/fbround.png");
+
+}
