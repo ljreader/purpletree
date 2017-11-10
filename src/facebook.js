@@ -1,6 +1,6 @@
 $(document).ready(function (){
 
-	//FACEBOOK AUTHENTICATION
+  //FACEBOOK AUTHENTICATION
         function statusChangeCallback(response) {
          console.log('statusChangeCallback');
          console.log(response);
@@ -33,6 +33,9 @@ $(document).ready(function (){
        // FB.getLoginStatus().  This function gets the state of the
        // person visiting this page and can return one of three states to
        // the callback you provide.  They can be:
+           FB.AppEvents.logPageView();   
+         };
+
        //
        // 1. Logged into your app ('connected')
        // 2. Logged into Facebook, but not your app ('not_authorized')
