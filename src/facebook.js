@@ -15,8 +15,8 @@ $(document).ready(function(d, s, id) {
         autoLogAppEvents : true,
         xfbml            : true,
         version          : 'v2.11'
-      })
-    }
+      });
+    };
 
 function fb_login(){
     FB.login(function(response) {
