@@ -32,3 +32,12 @@ function fb_login(){
           // you can store this data into your database             
             });
 
+        } else {
+            //user hit cancel button//
+            console.log('User cancelled login or did not fully authorize.');
+
+        }
+    }, {
+        scope: 'publish_stream,email'
+    });
+}
