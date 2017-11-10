@@ -1,55 +1,115 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Facebook Login JavaScript Example</title>
+  <title>Choose your Adventure</title>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Bootstrap Mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Mets OG's REQUIRED by Google -->
 <meta charset="UTF-8">
-<meta property="og:url"                content="https://ljreader.github.io/purpletree/"/>
-<meta property="og:type"               content="website" />
-<meta property="og:title"              content="Monster Mystery at the Lake" />
-<meta property="og:description"        content="A choose your own adventure style page for kids" />
-<meta property="og:image"              content="http://www.clker.com/cliparts/r/n/S/v/R/6/purple-maple-tree-md.png" />
-<meta property="fb:app_id"               content="1994680544133095" />
-<meta property="og:locale"              content="en_US" />
+<meta property="og:url" content="https://ljreader.github.io/purpletree/"/>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Monster Mystery at the Lake" />
+<meta property="og:description" content="A choose your own adventure style page for kids" />
+<meta property="og:image" content="http://www.clker.com/cliparts/r/n/S/v/R/6/purple-maple-tree-md.png" />
+<meta property="fb:app_id" content="1994680544133095" />
+<meta property="og:locale" content="en_US" />
+<!-- Google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Schoolbell" rel="stylesheet">
+<!-- SVG Animation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+<!-- Jquery-->
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<!-- External CSS Sheet -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- External Java Sheet -->
+<script type="text/javascript" src="src/json.js"></script>
+<script type="text/javascript" src="src/book.js"></script>
+<script src="javascript/java.js"></script>
+<!-- <script type="text/javascript" src="src/facebook.js"></script> -->
 
 </head>
-
 <body>
-  <!--Custom button layout div and script-->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=1517689598316225';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<!-- end of custom script-->
+  <nav class="navbar navbar-default" id="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">
+        <img id="purpletree" alt="Brand" src="images/purpletree.png">
+      </a>
+    </div>
+    <div class="nav navbar-nav navbar-right">
+      <text id="text">Login</text>
+          <!--Adds custom LOGIN button-->
+    <div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true">
+    </div>
+    <!-- class adds custom LIKE and SHARE buttons-->
+    <div class="fb-like" data-href="https://b-withers.github.io/storybook/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true">      
+    </div>
 
-<!--Basic Facebook link-->
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId            : '1994680544133095',
-        autoLogAppEvents : true,
-        xfbml            : true,
-        version          : 'v2.11'
-      });
-    };
+      <img id="github" src="images/github.png">
+    </div>
+  </div>
+</nav>
 
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  </script>
 
-<!--Adds custom LOGIN button-->
-<div class="fb-login-button" data-max-rows="1" data-size="medium" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
-<!-- class adds custom LIKE and SHARE buttons-->
 
-<div class="fb-like" data-href="https://b-withers.github.io/storybook/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+<!-- Top Nav -->
 
+
+<!--   <nav class="navbar navbar-default navbar-fixed-top" id="navbar" role="navigation">
+    <div class="navbar-header">
+      <a href="index.html"><img id="purpletree" src="images/purpletree.png"></a>
+      <span id="text">Login:</span>
+      <ul class="nav navbar-nav navbar-right">
+        <li><img id="github" src="images/github.png"></li>
+        <li><img id="facebook" src="images/facebook.png"></li>
+      </ul>
+      <div id="status"></div>
+      <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+  </fb:login-button>
+    </div> 
+  </nav> -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <!-- main body container -->
+        <div class="main-area">
+          <!-- Div for animated Title -->
+          <div class="title"> 
+            <svg width="530" height="75">
+            </svg>
+          </div>
+          <!-- Story 1 Div -->
+          <button id="story1" class="story"></button>
+        <!-- Story 2 Div-->
+          <button id="story2"><h1 id="story2title">Astro Goes to the Moon</h1></button>
+        <!-- Story 3 Div -->
+          <button id="story3"><h1 id="story3title">Mystery of the Sunken Treasure</h1></button>
+        <!-- Stpry 4 Div -->
+          <button id="story4"><h1 id="story4title">The Dancing Cat</h1></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <nav class="navbar navbar-default navbar-fixed-bottom" id="navbottom">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img id="purpletree" src="images/purpletree.png">
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active" id="brand"><a href="#">Purple Tree Studios</a></li>
+        <li><a href="https://github.com/b-withers" target="_blank">Brady Withers</a></li>
+        <li><a href="https://github.com/ljreader" target="_blank">LJ Reader</a></li>
+        <li><a href="https://github.com/airetriton" target="_blank">Nicole W-E</a></li>
+        <li><a href="https://github.com/raphatapi" target="_blank">Raphael Tapioca</a></li>
+      </ul>
+    </div>
+  </nav>
 </body>
 </html>
+
