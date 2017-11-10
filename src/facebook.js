@@ -41,7 +41,7 @@ function fb_login(){
 }
 (function() {
     var e = document.createElement('script');
-    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+    e.src = document.location.protocol + 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=1517689598316225';
     e.async = true;
     document.getElementById('fb-root').appendChild(e);
 }());
