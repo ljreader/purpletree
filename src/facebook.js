@@ -18,30 +18,3 @@ $(document).ready(function(d, s, id) {
       })
     }
 
-function fb_login(){
-    FB.login(function(response) {
-
-        if (response.authResponse) {
-
-            access_token = response.authResponse.accessToken; //get access token
-            user_id = response.authResponse.userID; //get FB UID
-
-            FB.api('/me', function(response) {
-                user_email = response.email; //get user email
-            });
-
-        } else {
-            //user hit cancel button
-            console.log('User cancelled login or did not fully authorize.');
-
-        }
-    }, {
-        scope: 'publish_stream,email'
-    });
-}
-(function() {
-    var e = document.createElement('script');
-    e.src = document.location.protocol + 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11&appId=1517689598316225';
-    e.async = true;
-    document.getElementById('fb-root');
-}());
